@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <script defer src="./dist/scripts/functions.js"></script>
+    <script defer src="./dist/scripts/script.js"></script>
+</head>
+
+
+<body>
+    <section class="body__wrapper">
+
+        <section class="todo__main layout__container">
+
+            <form id="todo-form" action="" method="post" class="todo__form">
+                <input id="todo-input" type="text" name="todo-input" class="todo__input" placeholder="What to-do... what to do" required>
+                <button id="todo-add" class="cta__add" type="submit">Add</button>
+            </form>
+            
+            <form id="todo-list" action="" method="post" class="todo--box todo__list flex__container flex__container--column">
+            </form>
+            
+            <div id="done-list" class="todo--box done__list flex__container flex__container--column">
+            </div>
+
+
+        </section>
+
+    </section>    
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+form{
+
+    textarea,
+    input{
+        border: none;
+        background: transparent;
+        @include border-basic;
+        outline: none;
+        padding: 1rem 1.5rem;
+        color: #fff;
+        font-size: 20px;
+        border-radius: $border-radius-input;
+        @include transition;
+        &::placeholder{
+            color: rgb(100, 129, 203);
+            color: rgba(85, 97, 131, 0.48);
+        }
+        &:focus{
+            @include border-focus;
+            &::placeholder{
+                color: transparent;
+            }
+        }
+    }
+
+    button[type="submit"]{
+        box-shadow: none;
+        background: transparent;
+        color: #fff;
+        border: none;
+        @include border-basic;
+        @include transition;
+        &:hover{
+            @include border-focus;
+        }
+    }
+}

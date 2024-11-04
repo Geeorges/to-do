@@ -1,0 +1,62 @@
+::-webkit-scrollbar{
+    background: transparent;
+    width: 6px;
+    position: relative;
+}
+::-webkit-scrollbar-thumb{
+    background: #556183;
+}
+::selection{
+    background: #556183;
+    color: #fff;
+}
+
+html,
+body{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+body{
+    margin: 0;
+}
+
+
+body{
+    background: $color-primary;
+    //background: #531cff;
+    background: #282f41;
+    color: #fff;
+}
+
+
+[data-title]{
+    position: relative;
+}
+
+[data-title]::after {
+    content: attr(data-title); /* Use the content from the data-tooltip attribute */
+    visibility: hidden;
+    background-color: #505a73;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 125%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap; /* Prevents text wrapping */
+    z-index: 1;
+}
+
+/* Tooltip arrow styling */
+
+
+/* Show the custom tooltip on hover */
+[data-title]:hover::after {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,29 @@
+.layout__container{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @media #{$tablet} {
+        padding-left: 0;
+        padding-right: 0;
+        @include layout-1024;
+    }
+}
+.flex__container{
+    display: flex;
+    flex-wrap: wrap;
+    &--column{
+        flex-direction: column;
+    }
+}
+.grid__container{
+    display: grid;
+}
+.grid__col--2{
+    @media #{$tablet} {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.grid__col--3{
+    @media #{$tablet} {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
