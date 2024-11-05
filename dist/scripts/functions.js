@@ -2,7 +2,7 @@
 
 //show box if not empty
 function checkIfEmpty(){
-    let todoBox = document.querySelectorAll(".todo--box");
+    let todoBox = document.querySelectorAll(".todo__box");
 
     todoBox.forEach(box => {
         if (box.children.length > 0) {
@@ -29,12 +29,18 @@ function completeListItem() {
             let itemValue = "";
             itemValue = wrapper.querySelector("input");
             itemValue = itemValue.value;
-                
+            
+            let content = wrapper.getAttribute("data-content");
+            
             if (itemValue.textContent == " "){
                 item.setAttribute("requiery", "true");
             } else{
                 item.setAttribute("requiery", "false");
-                createDoneItem(itemValue);
+
+                createDoneItem(content);
+                storeDoneItems(content);
+                deleteTodoItem(content);
+
                 wrapper.remove();
                 checkIfEmpty();
             }
@@ -51,6 +57,11 @@ function removeListItem() {
 
         ctaDelete.addEventListener('click', function (event) {
             event.preventDefault();
+
+            let content = wrapper.getAttribute("data-content");
+
+            deleteTodoItem(content);
+
             wrapper.remove();
             checkIfEmpty();
         });
@@ -64,7 +75,7 @@ function editListItem() {
     inputWrapper.forEach(wrapper => {
         let ctaEdit = wrapper.querySelector(".edit__cta");
 
-        // Remove any existing event listeners first (if any)
+        //Remove any existing event listeners first (if any)
         ctaEdit.replaceWith(ctaEdit.cloneNode(true));
         ctaEdit = wrapper.querySelector(".edit__cta");
 
@@ -72,15 +83,22 @@ function editListItem() {
         ctaEdit.addEventListener('click', function (event) {
             event.preventDefault();
             let input = wrapper.querySelector("input");
-            input.title = input.value;
-
+            
             if (ctaEdit.classList.contains("edit__cta--active")){
                 ctaEdit.classList.remove("edit__cta--active");
-                ctaEdit.setAttribute("title", "Edit");
+                ctaEdit.setAttribute("data-title", "Edit");
+
+                input.title = input.value;
+                
+                let content = wrapper.getAttribute("data-content");
+                updateEditedItem(content, input.value);
+
+                wrapper.setAttribute("data-content", input.value);
+
             }
             else{
                 ctaEdit.classList.add("edit__cta--active");
-                ctaEdit.setAttribute("title", "OK");
+                ctaEdit.setAttribute("data-title", "OK");
             }
 
             // Toggle the readOnly property
@@ -95,6 +113,7 @@ function editListItem() {
 
 //create new to-do item
 function createListItem(newItem) {
+
     //delete cta
     let newDeleteCta = document.createElement("a");
     newDeleteCta.classList.add("delete__cta");
@@ -109,15 +128,6 @@ function createListItem(newItem) {
     let newEditWrapper = document.createElement("div");
     newEditWrapper.classList.add("edit__wrapper");
 
-    //wrapper
-    let newInputWrapper = document.createElement("div");
-    newInputWrapper.classList.add("input__wrapper");
-
-    //check
-    let newCheck = document.createElement("a");
-    newCheck.classList.add("check__cta");
-    newCheck.setAttribute("data-title", "Done");
-    
     //input
     let newInput = document.createElement("input");
     newInput.type = 'text'; 
@@ -125,6 +135,17 @@ function createListItem(newItem) {
     newInput.readOnly = true; 
     newInput.value = newItem;
     newInput.title = newInput.value;
+
+    //wrapper
+    let newInputWrapper = document.createElement("div");
+    newInputWrapper.classList.add("input__wrapper");
+    //newInputWrapper.setAttribute("data-id", listItemId)
+    newInputWrapper.setAttribute("data-content", newInput.value)
+
+    //check
+    let newCheck = document.createElement("a");
+    newCheck.classList.add("check__cta");
+    newCheck.setAttribute("data-title", "Done");
 
     //append
     newInputWrapper.appendChild(newCheck);
@@ -135,6 +156,8 @@ function createListItem(newItem) {
     todoList.appendChild(newInputWrapper);
 
     checkIfEmpty();
+
+
 }
 
 //create new done item

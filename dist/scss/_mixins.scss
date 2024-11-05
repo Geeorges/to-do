@@ -1,9 +1,9 @@
 @mixin box-main{
-    background: rgba(78, 78, 78, 0.04);
+    background: rgba(45, 54, 78, 0.561);
     border-radius: $border-radius-box;
-    padding: 2.3rem 1.4rem 2.5rem 1.7rem;
+    padding: 1rem;
     @media #{$tablet} {
-        padding: 3rem 2.5rem;
+        padding: 1.2rem 1.4rem;
     }
 }
 

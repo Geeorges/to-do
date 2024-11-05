@@ -21,6 +21,13 @@ body{
     margin: 0;
 }
 
+*{
+    &,
+    &::before,
+    &::after{
+        box-sizing: border-box;
+    }
+}
 
 body{
     background: $color-primary;
@@ -60,3 +67,5 @@ body{
     visibility: visible;
     opacity: 1;
 }
+
+

@@ -1,14 +1,16 @@
-.todo__main{
-    padding-top: 3rem;
-    padding-bottom: 5rem;
+.body__wrapper{
+    padding: 2rem 0 3rem;
+}
 
+.todo__main{
+    padding: 3rem;
+    background: #232b3e;
 }
 
 .todo__form{
     display: grid;
     grid-template-columns: 1fr 64px;
     grid-gap: 1.5rem;
-    margin-bottom: 3rem;
 
     .todo__input{
 
@@ -39,16 +41,11 @@
     }
 }
 
-.todo--box{
+.todo__box{
     display: none;
     position: relative;
-    margin-top: 2.5rem;
-    @include border-basic;
-    @include box-main;
-    opacity: 0;
-    @include transition;
-    transform: scale(0.7);
-   
+    margin-top: 3.7rem;
+     
     &.active{
         display: flex;  
         opacity: 1;
@@ -68,16 +65,20 @@
     }
 }
 
-.todo__list{
-    grid-gap: 1.5rem;
+.todo__box--list{
+    grid-gap: 1rem;
 
     &::before{
         content: 'To-do';
     }
+
     .input__wrapper{
+        position: relative;
         display: grid;
         grid-template-columns: 44px 1fr 90px;
         grid-gap: 1.2rem;
+        @include box-main;
+
         @media #{$tablet} {
             grid-gap: 1.8rem;
         }
@@ -92,9 +93,25 @@
             }
             
             @media #{$tablet} {
-                padding: 0 0 0.6rem 1rem;
+                padding: 0 0 0.5rem 0.5rem;
             }
         }
+
+        /* Položka, která se přetahuje */
+        &.sortable-chosen {
+        }
+        
+        /* Duchová třída, která simuluje umístění */
+        &.ghost {
+            opacity: 0.3;
+        }
+
+        &.dragging {
+        }
+        
+        &.chosen {
+        }
+
         .check__cta{
             border-radius: 50%;
             @include border-basic;
@@ -140,6 +157,7 @@
         padding-left: 10px;
         justify-content: space-between;
         align-items: flex-end;
+      
         &>a{
             height: 35px;
             border-radius: 0;
@@ -189,7 +207,7 @@
     }
 }
 
-.done__list{
+.todo__box--done{
     grid-gap: 0.5rem;
     &::before{
         content: 'Done';
