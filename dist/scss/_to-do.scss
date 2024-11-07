@@ -1,20 +1,24 @@
 .body__wrapper{
-    padding: 2rem 0 3rem;
+    padding: 0.7rem 1rem 2rem;
+    @media #{$tablet} {
+        padding: 1.3rem 0 3rem;
+    }
 }
 
 .todo__main{
-    padding: 3rem;
+    padding: 1.7rem 1.5rem 2rem;
     background: #232b3e;
+    background: #31394c38;
+    border-radius: $border-radius-box;
+    @media #{$tablet} {
+        padding: 3rem;
+    }
 }
 
 .todo__form{
     display: grid;
     grid-template-columns: 1fr 64px;
     grid-gap: 1.5rem;
-
-    .todo__input{
-
-    }
 
     .cta__add{
         width: 64px;
@@ -45,6 +49,10 @@
     display: none;
     position: relative;
     margin-top: 3.7rem;
+    margin-bottom: 1rem;
+    @media #{$tablet} {
+        margin-top: 4.5rem;
+    }
      
     &.active{
         display: flex;  
@@ -56,18 +64,21 @@
         position: relative;
         left: 0;
         top: 0;
-        font-size: 45px;
-        color: #5c77bc;
-        opacity: 0.1;
+        font-size: 33px;
+        color: #2f3a54;
+        opacity: 1;
         font-weight: 700;
         line-height: 1;
         margin: -1rem 0 0;
+        @media #{$tablet} {
+            font-size: 40px;
+        }
     }
 }
 
-.todo__box--list{
+// To-do
+.todo__box--todo{
     grid-gap: 1rem;
-
     &::before{
         content: 'To-do';
     }
@@ -78,6 +89,18 @@
         grid-template-columns: 44px 1fr 90px;
         grid-gap: 1.2rem;
         @include box-main;
+        align-items: center;
+        padding: 1rem 1.4rem;
+        height: 90px;
+        max-width: 100%;
+        -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        &.editing--active{
+            grid-template-columns: 1fr 90px;
+            .check__cta{
+                display: none;
+            }
+        }
 
         @media #{$tablet} {
             grid-gap: 1.8rem;
@@ -97,29 +120,22 @@
             }
         }
 
-        /* Položka, která se přetahuje */
-        &.sortable-chosen {
-        }
-        
-        /* Duchová třída, která simuluje umístění */
+        // ghost class for drag
         &.ghost {
             opacity: 0.3;
-        }
-
-        &.dragging {
-        }
-        
-        &.chosen {
         }
 
         .check__cta{
             border-radius: 50%;
             @include border-basic;
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             cursor: pointer;
             @include transition;
             position: relative;
+            &.disable{
+                display: none;
+            }
             &::before{
                 content: '';
                 display: block;
@@ -184,7 +200,7 @@
             cursor: pointer;
             &.edit__cta--active,
             &:hover{
-                background: #54607d;
+                background: #414a61;
             }
             &::before{
                 mask-image: url(../images/edit.svg);
@@ -192,7 +208,6 @@
             }
         }
         .delete__cta{
-            //background-color: #DD6769;
             cursor: pointer;
             &:hover{
                 background-color: darken(#DD6769, 2.5);
@@ -207,6 +222,8 @@
     }
 }
 
+
+// Done
 .todo__box--done{
     grid-gap: 0.5rem;
     &::before{
@@ -217,7 +234,6 @@
         margin: 0;
         position: relative;
         padding-left: 2rem;
-        text-decoration: line-through;
         &::before{
             content: '';
             display: block;
@@ -228,7 +244,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: transparentize($color-primary, 0.7);
+            background: $color-primary-light;
         }
     }
 }

@@ -1,26 +1,23 @@
 @mixin box-main{
     background: rgba(45, 54, 78, 0.561);
+    background: rgba(45, 54, 78, 0.18);
     border-radius: $border-radius-box;
     padding: 1rem;
     @media #{$tablet} {
         padding: 1.2rem 1.4rem;
     }
 }
-
 @mixin border-basic{
     box-shadow: inset 0 0 0 2px $color-border-basic;
 }
 @mixin border-focus{
     box-shadow: inset 0 0 0 2px $color-border-focus;
 }
-
 @mixin transition{
     transition: 0.3s ease;
 }
-
-
 @mixin layout-1024{
-    max-width: 1024px;
+    max-width: 950px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;

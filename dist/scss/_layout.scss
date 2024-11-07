@@ -7,16 +7,19 @@
         @include layout-1024;
     }
 }
-.flex__container{
+
+.flex{
     display: flex;
     flex-wrap: wrap;
+    
+    &--end{
+        justify-content: flex-end;
+    }
     &--column{
         flex-direction: column;
     }
 }
-.grid__container{
-    display: grid;
-}
+
 .grid__col--2{
     @media #{$tablet} {
         grid-template-columns: 1fr 1fr;
@@ -25,5 +28,18 @@
 .grid__col--3{
     @media #{$tablet} {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.grid {
+    display: grid;
+    &--gap-small{
+        grid-gap: 8px;
+    }
+    &--gap-medium{
+        grid-gap: 16px;
+    }
+    &--gap-large{
+        grid-gap: 24px;
     }
 }

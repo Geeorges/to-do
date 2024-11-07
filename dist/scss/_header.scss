@@ -1,0 +1,17 @@
+.header__inner{
+    padding: 1.9rem 0 0;
+    @media #{$tablet} {
+        padding: 3rem 0 0;
+    }
+}
+
+#ctaReset{
+    svg{
+        @include transition;
+    }
+    &:hover{
+        svg{
+            transform: rotate(-90deg);
+        }
+    }
+}
