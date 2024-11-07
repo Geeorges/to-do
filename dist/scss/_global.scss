@@ -1,11 +1,9 @@
 /*tooltip*/
-
-[data-title]{
+[data-title] {
     position: relative;
 }
-
 [data-title]::after {
-    content: attr(data-title); /* Use the content from the data-tooltip attribute */
+    content: attr(data-title);
     visibility: hidden;
     background-color: #505a73;
     color: #fff;
@@ -14,7 +12,7 @@
     position: absolute;
     opacity: 0;
     transition: opacity 0.3s;
-    white-space: nowrap; /* Prevents text wrapping */
+    white-space: nowrap;
     z-index: 1;
     padding: 3px 7px;
     bottom: 120%;
@@ -22,45 +20,41 @@
     right: 0;
     font-size: 0.7rem;
     text-indent: 0;
-    
     @media #{$tablet} {
         padding: 5px 10px;
-        bottom: 125%; /* Position above the element */
+        bottom: 125%;
         left: 50%;
         right: auto;
         transform: translateX(-50%);
         font-size: 1rem;
     }
 }
-
 [data-title]:hover::after {
     visibility: visible;
     opacity: 1;
 }
-
 /* animation */
-
 @-webkit-keyframes scale-in-center {
     0% {
-      -webkit-transform: scale(0);
-              transform: scale(0);
-      opacity: 1;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
     }
     100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
     }
-  }
-  @keyframes scale-in-center {
+}
+@keyframes scale-in-center {
     0% {
-      -webkit-transform: scale(0);
-              transform: scale(0);
-      opacity: 1;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        opacity: 1;
     }
     100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
     }
-  }
+}

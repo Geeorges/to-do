@@ -1,26 +1,23 @@
-.body__wrapper{
+.body__wrapper {
     padding: 0.7rem 1rem 2rem;
     @media #{$tablet} {
         padding: 1.3rem 0 3rem;
     }
 }
-
-.todo__main{
+.todo__main {
     padding: 1.7rem 1.5rem 2rem;
     background: #232b3e;
     background: #31394c38;
-    border-radius: $border-radius-box;
+    border-radius: var(--border-radius-box);
     @media #{$tablet} {
         padding: 3rem;
     }
 }
-
-.todo__form{
+.todo__form {
     display: grid;
     grid-template-columns: 1fr 64px;
     grid-gap: 1.5rem;
-
-    .cta__add{
+    .cta__add {
         width: 64px;
         height: 64px;
         border-radius: 50%;
@@ -28,7 +25,7 @@
         text-indent: -9999px;
         position: relative;
         cursor: pointer;
-        &::before{
+        &::before {
             content: '';
             display: block;
             position: absolute;
@@ -44,8 +41,7 @@
         }
     }
 }
-
-.todo__box{
+.todo__box {
     display: none;
     position: relative;
     margin-top: 3.7rem;
@@ -53,13 +49,12 @@
     @media #{$tablet} {
         margin-top: 4.5rem;
     }
-     
-    &.active{
-        display: flex;  
+    &.active {
+        display: flex;
         opacity: 1;
         transform: scale(1);
     }
-    &::before{
+    &::before {
         display: block;
         position: relative;
         left: 0;
@@ -75,15 +70,13 @@
         }
     }
 }
-
 // To-do
-.todo__box--todo{
+.todo__box--todo {
     grid-gap: 1rem;
-    &::before{
+    &::before {
         content: 'To-do';
     }
-
-    .input__wrapper{
+    .input__wrapper {
         position: relative;
         display: grid;
         grid-template-columns: 44px 1fr 90px;
@@ -95,37 +88,33 @@
         max-width: 100%;
         -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        &.editing--active{
+        &.editing--active {
             grid-template-columns: 1fr 90px;
-            .check__cta{
+            .check__cta {
                 display: none;
             }
         }
-
         @media #{$tablet} {
             grid-gap: 1.8rem;
         }
-        input{
+        input {
             border-radius: 0;
             box-shadow: none;
-            border-bottom: 2px solid lighten($color-border-basic, 50);
+            border-bottom: 2px solid var(--color-border-basic);
             padding: 0 0 0.3rem 0.5rem;
-            &[readonly]{
-                border-bottom: 2px solid $color-border-basic;
+            &[readonly] {
+                border-bottom: 2px solid var(--color-border-basic);
                 cursor: auto;
             }
-            
             @media #{$tablet} {
                 padding: 0 0 0.5rem 0.5rem;
             }
         }
-
         // ghost class for drag
         &.ghost {
             opacity: 0.3;
         }
-
-        .check__cta{
+        .check__cta {
             border-radius: 50%;
             @include border-basic;
             width: 42px;
@@ -133,10 +122,10 @@
             cursor: pointer;
             @include transition;
             position: relative;
-            &.disable{
+            &.disable {
                 display: none;
             }
-            &::before{
+            &::before {
                 content: '';
                 display: block;
                 position: absolute;
@@ -155,31 +144,29 @@
                 @include transition;
                 transform: scale(0.5);
             }
-            &:hover{
+            &:hover {
                 background: #556183;
                 box-shadow: inset 0 0 0 2px #3d4764;
-                &::before{
+                &::before {
                     opacity: 1;
                     transform: scale(1);
                 }
             }
         }
     }
-
-    .edit__wrapper{
+    .edit__wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
         padding-left: 10px;
         justify-content: space-between;
         align-items: flex-end;
-      
-        &>a{
+        &>a {
             height: 35px;
             border-radius: 0;
             position: relative;
             @include transition;
-            &::before{
+            &::before {
                 content: '';
                 display: block;
                 position: absolute;
@@ -194,47 +181,45 @@
                 transition: inherit;
             }
         }
-        .edit__cta{
+        .edit__cta {
             background-color: #7390D8;
             background-color: rgba(235, 241, 255, 0.071);
             cursor: pointer;
             &.edit__cta--active,
-            &:hover{
+            &:hover {
                 background: #414a61;
             }
-            &::before{
+            &::before {
                 mask-image: url(../images/edit.svg);
                 mask-size: 20px;
             }
         }
-        .delete__cta{
+        .delete__cta {
             cursor: pointer;
-            &:hover{
+            &:hover {
                 background-color: darken(#DD6769, 2.5);
-                &::before{
+                &::before {
                     transform: scale(0.85);
                 }
             }
-            &::before{
+            &::before {
                 mask-image: url(../images/delete.svg);
             }
         }
     }
 }
-
-
 // Done
-.todo__box--done{
+.todo__box--done {
     grid-gap: 0.5rem;
-    &::before{
+    &::before {
         content: 'Done';
         margin-bottom: 1rem;
     }
-    p{
+    p {
         margin: 0;
         position: relative;
         padding-left: 2rem;
-        &::before{
+        &::before {
             content: '';
             display: block;
             position: absolute;
@@ -244,7 +229,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: $color-primary-light;
+            background: var(--color-primary-light);
         }
     }
 }

@@ -1,4 +1,4 @@
-.layout__container{
+.layout__container {
     padding-left: 1rem;
     padding-right: 1rem;
     @media #{$tablet} {
@@ -7,39 +7,35 @@
         @include layout-1024;
     }
 }
-
-.flex{
+.flex {
     display: flex;
     flex-wrap: wrap;
-    
-    &--end{
+    &--end {
         justify-content: flex-end;
     }
-    &--column{
+    &--column {
         flex-direction: column;
     }
 }
-
-.grid__col--2{
+.grid__col--2 {
     @media #{$tablet} {
         grid-template-columns: 1fr 1fr;
     }
 }
-.grid__col--3{
+.grid__col--3 {
     @media #{$tablet} {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
-
 .grid {
     display: grid;
-    &--gap-small{
+    &--gap-small {
         grid-gap: 8px;
     }
-    &--gap-medium{
+    &--gap-medium {
         grid-gap: 16px;
     }
-    &--gap-large{
+    &--gap-large {
         grid-gap: 24px;
     }
 }

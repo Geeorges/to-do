@@ -1,11 +1,26 @@
+:root {
+  --color-primary: #282f41;
+  --color-primary-light: #3b4661;
+  --color-danger: #DD6769;
+  --color-border-basic: #556183;
+  --color-border-focus: #aac2ff;
+  --primary-font: "Ubuntu", sans-serif;
+  --border-radius-input: 60px;
+  --border-radius-box: 0px;
+}
+
 html,
 body {
   font-size: 20px;
   line-height: 1.5;
+  font-family: var(--primary-font);
 }
 
 body {
   margin: 0;
+  background: var(--color-primary);
+  background: #0d1117;
+  color: #fff;
 }
 
 *, *::before, *::after {
@@ -29,12 +44,6 @@ body {
 
 ::selection {
   background: #556183;
-  color: #fff;
-}
-
-body {
-  background: #282f41;
-  background: #0d1117;
   color: #fff;
 }
 
@@ -102,7 +111,7 @@ body {
   padding: 1.7rem 1.5rem 2rem;
   background: #232b3e;
   background: rgba(49, 57, 76, 0.2196078431);
-  border-radius: 0px;
+  border-radius: var(--border-radius-box);
 }
 @media only screen and (min-width:1024px) {
   .todo__main {
@@ -190,7 +199,7 @@ body {
   grid-gap: 1.2rem;
   background: rgba(45, 54, 78, 0.561);
   background: rgba(45, 54, 78, 0.18);
-  border-radius: 0px;
+  border-radius: var(--border-radius-box);
   padding: 1rem;
   align-items: center;
   padding: 1rem 1.4rem;
@@ -217,11 +226,11 @@ body {
 .todo__box--todo .input__wrapper input {
   border-radius: 0;
   box-shadow: none;
-  border-bottom: 2px solid #e7eaf0;
+  border-bottom: 2px solid var(--color-border-basic);
   padding: 0 0 0.3rem 0.5rem;
 }
 .todo__box--todo .input__wrapper input[readonly] {
-  border-bottom: 2px solid #556183;
+  border-bottom: 2px solid var(--color-border-basic);
   cursor: auto;
 }
 @media only screen and (min-width:1024px) {
@@ -234,7 +243,7 @@ body {
 }
 .todo__box--todo .input__wrapper .check__cta {
   border-radius: 50%;
-  box-shadow: inset 0 0 0 2px #556183;
+  box-shadow: inset 0 0 0 2px var(--color-border-basic);
   width: 42px;
   height: 42px;
   cursor: pointer;
@@ -356,7 +365,7 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #455170;
+  background: var(--color-primary-light);
 }
 
 /*tooltip*/
@@ -365,7 +374,7 @@ body {
 }
 
 [data-title]::after {
-  content: attr(data-title); /* Use the content from the data-tooltip attribute */
+  content: attr(data-title);
   visibility: hidden;
   background-color: #505a73;
   color: #fff;
@@ -374,7 +383,7 @@ body {
   position: absolute;
   opacity: 0;
   transition: opacity 0.3s;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap;
   z-index: 1;
   padding: 3px 7px;
   bottom: 120%;
@@ -386,7 +395,7 @@ body {
 @media only screen and (min-width:1024px) {
   [data-title]::after {
     padding: 5px 10px;
-    bottom: 125%; /* Position above the element */
+    bottom: 125%;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -414,25 +423,25 @@ form textarea,
 form input {
   border: none;
   background: transparent;
-  box-shadow: inset 0 0 0 2px #556183;
+  box-shadow: inset 0 0 0 2px var(--color-border-basic);
   outline: none;
   padding: 1rem 1.5rem;
   color: #fff;
   font-size: 20px;
-  border-radius: 60px;
+  border-radius: var(--border-radius-input);
   transition: 0.3s ease;
   width: 100%;
 }
 form textarea::-moz-placeholder, form input::-moz-placeholder {
-  color: #455170;
+  color: var(--color-primary-light);
 }
 form textarea::placeholder,
 form input::placeholder {
-  color: #455170;
+  color: var(--color-primary-light);
 }
 form textarea:focus,
 form input:focus {
-  box-shadow: inset 0 0 0 2px #aac2ff;
+  box-shadow: inset 0 0 0 2px var(--color-border-focus);
 }
 form textarea:focus::-moz-placeholder, form input:focus::-moz-placeholder {
   color: transparent;
@@ -446,11 +455,11 @@ form button[type=submit] {
   background: transparent;
   color: #fff;
   border: none;
-  box-shadow: inset 0 0 0 2px #556183;
+  box-shadow: inset 0 0 0 2px var(--color-border-basic);
   transition: 0.3s ease;
 }
 form button[type=submit]:hover {
-  box-shadow: inset 0 0 0 2px #aac2ff;
+  box-shadow: inset 0 0 0 2px var(--color-border-focus);
 }
 
 .header__inner {

@@ -1,13 +1,14 @@
 $color-primary: #282f41;
-$color-primary-light: lighten($color-primary, 15);
-$color-danger: #DD6769;
-$color-border-basic: #556183;
-$color-border-focus: #aac2ff;
-
-$primary-font: "Ubuntu", sans-serif;
-
-$border-radius-input: 60px;
-$border-radius-box: 0px;
-
+$color-primary-light: lighten($color-primary, 10%);
+:root {
+    --color-primary: #{$color-primary};
+    --color-primary-light: #{$color-primary-light};
+    --color-danger: #DD6769;
+    --color-border-basic: #556183;
+    --color-border-focus: #aac2ff;
+    --primary-font: "Ubuntu", sans-serif;
+    --border-radius-input: 60px;
+    --border-radius-box: 0px;
+}
 $tablet: "only screen and (min-width:1024px)";
 $smartphone: "only screen and (min-width:600px)";

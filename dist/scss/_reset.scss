@@ -1,37 +1,31 @@
 html,
-body{
+body {
     font-size: 20px;
     line-height: 1.5;
+    font-family: var(--primary-font);
 }
-
-body{
+body {
     margin: 0;
+    background: var(--color-primary);
+    background: #0d1117;
+    color: #fff;
 }
-*{
+* {
     &,
     &::before,
-    &::after{
+    &::after {
         box-sizing: border-box;
     }
 }
-
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     background: transparent;
     width: 6px;
     position: relative;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background: #556183;
 }
-::selection{
+::selection {
     background: #556183;
-    color: #fff;
-}
-
-
-
-body{
-    background: $color-primary;
-    background: #0d1117;
     color: #fff;
 }

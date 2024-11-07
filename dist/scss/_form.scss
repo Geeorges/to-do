@@ -1,6 +1,6 @@
-form{
+form {
     textarea,
-    input{
+    input {
         border: none;
         background: transparent;
         @include border-basic;
@@ -8,28 +8,27 @@ form{
         padding: 1rem 1.5rem;
         color: #fff;
         font-size: 20px;
-        border-radius: $border-radius-input;
+        border-radius: var(--border-radius-input);
         @include transition;
         width: 100%;
-        &::placeholder{
-            color: $color-primary-light;
+        &::placeholder {
+            color: var(--color-primary-light);
         }
-        &:focus{
+        &:focus {
             @include border-focus;
-            &::placeholder{
+            &::placeholder {
                 color: transparent;
             }
         }
     }
-
-    button[type="submit"]{
+    button[type="submit"] {
         box-shadow: none;
         background: transparent;
         color: #fff;
         border: none;
         @include border-basic;
         @include transition;
-        &:hover{
+        &:hover {
             @include border-focus;
         }
     }
